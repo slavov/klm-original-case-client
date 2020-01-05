@@ -1,0 +1,24 @@
+<div class="fare-dashboard-main">
+  <div class="fare-dashboard-origin">
+    <mat-card class="fare-dashboard-select-card">
+      <mat-card-title>Select origin</mat-card-title>
+      <mat-card-content>
+        <app-airport-code (airportEventEmitter)="setOrigin($event)"></app-airport-code>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="fare-dashboard-destination">
+    <mat-card class="fare-dashboard-select-card">
+      <mat-card-title>Select destination</mat-card-title>
+      <mat-card-content>
+        <app-airport-code (airportEventEmitter)="setDestination($event)"></app-airport-code>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="fare-dashboard-details">
+  <app-fare-details [origin]="origin" [destination]="destination">
+  </app-fare-details>
+</div>
