@@ -13,8 +13,7 @@ export class FareDashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   setOrigin(origin: Airport) {
     this.origin = origin;

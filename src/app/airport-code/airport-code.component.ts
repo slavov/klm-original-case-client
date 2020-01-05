@@ -31,16 +31,13 @@ export class AirportCodeComponent implements OnInit, OnDestroy {
         this.errorMsg = '';
       });
     this.airportsFormControl.valueChanges
-      .pipe(
-        debounceTime(1000),
-        tap(() => {
+      .pipe(debounceTime(1000), tap(() => {
           this.isLoading = true;
           this.filteredAirports = [];
           this.errorMsg = '';
         }),
         switchMap(value => this.travelServerService.search(value, 1)
-          .pipe(
-            finalize(() => {
+          .pipe(finalize(() => {
               this.isLoading = false;
             }),
           )
