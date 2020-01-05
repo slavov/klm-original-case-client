@@ -44,9 +44,7 @@ export class FareDetailsComponent implements OnInit, OnDestroy, OnChanges {
   private fetchFare() {
     this.isFetching = true;
     this.travelServerService.fare(this.origin.code, this.destination.code)
-      .pipe(
-        tap( () => (this.isFetching = false)),
-        takeUntil(this.destroy$))
+      .pipe(tap(() => (this.isFetching = false)), takeUntil(this.destroy$))
       .subscribe(data => {
         this.fare = data;
       });

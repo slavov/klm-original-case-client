@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {takeUntil, tap} from 'rxjs/operators';
 
@@ -21,9 +21,7 @@ export class StatisticDashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.travelServerService.statistics()
-      .pipe(
-        tap(() => (this.isLoading = false)),
-        takeUntil(this.destroy$))
+      .pipe(tap(() => (this.isLoading = false)), takeUntil(this.destroy$))
       .subscribe(data => {
         this.statistics = data;
       });

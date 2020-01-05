@@ -2,6 +2,7 @@
   <mat-card>
     <div *ngIf="!isFetching; else loading">
       <mat-card-title>Fare from {{origin?.code}} to {{destination?.code}}</mat-card-title>
+
       <mat-card-content>
 
         <mat-form-field>
@@ -24,6 +25,7 @@
 
       </mat-card-content>
     </div>
+
     <ng-template #loading>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>

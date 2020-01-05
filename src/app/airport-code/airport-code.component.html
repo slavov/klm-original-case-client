@@ -15,7 +15,9 @@
 
     <ng-container *ngIf="!isLoading">
       <mat-option *ngFor="let airport of filteredAirports" [value]="airport">
-        <span><strong>{{ airport.code }}</strong> {{ airport.name }}</span>
+        <span>
+          <strong>{{ airport.code }}</strong> {{ airport.name }}
+        </span>
       </mat-option>
     </ng-container>
 

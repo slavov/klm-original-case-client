@@ -19,7 +19,7 @@ export class TravelServerService {
   }
 
   // This is workaround for not working simple-travel-api-mock search term, that searches through code, name and description.
-  search(term: string, page = 1): Observable<Airport[]> {
+  search(term: string): Observable<Airport[]> {
     return this.http.get<Airport[]>(environment.backendUrl + '/travel/v1/airports')
       .pipe(map((response: any) => {
           return response._embedded.locations
@@ -29,6 +29,6 @@ export class TravelServerService {
   }
 
   statistics(): Observable<Statistics> {
-    return this.http.get<Statistics>(environment.backendUrl + `/travel/statistics`);
+    return this.http.get<Statistics>(environment.backendUrl + '/travel/statistics');
   }
 }

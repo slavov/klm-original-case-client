@@ -25,22 +25,19 @@ export class AirportCodeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.travelServerService.search('', 0)
+    this.travelServerService.search('')
       .subscribe(data => {
         this.filteredAirports = data;
         this.errorMsg = '';
       });
     this.airportsFormControl.valueChanges
-      .pipe(
-        debounceTime(1000),
-        tap(() => {
+      .pipe(debounceTime(1000), tap(() => {
           this.isLoading = true;
           this.filteredAirports = [];
           this.errorMsg = '';
         }),
-        switchMap(value => this.travelServerService.search(value, 1)
-          .pipe(
-            finalize(() => {
+        switchMap(value => this.travelServerService.search(value)
+          .pipe(finalize(() => {
               this.isLoading = false;
             }),
           )
