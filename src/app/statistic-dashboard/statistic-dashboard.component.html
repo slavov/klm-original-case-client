@@ -1,1 +1,79 @@
-<p>statistic-dashboard works!</p>
+<mat-card>
+  <mat-card-title>Statistic dashboard</mat-card-title>
+  <mat-card-content *ngIf="!isLoading; else loading">
+    <div>
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Total number of request" [value]="statistics.totalNumberRequestsProcessed"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Total number of requests resulted in an OK response"
+                   [value]="statistics.totalNumberRequest2xx"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Total number of requests resulted in a 4xx response"
+                   [value]="statistics.totalNumberRequest4xx"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Total number of requests resulted in a 5xx response"
+                   [value]="statistics.totalNumberRequest5xx"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Average response time of all requests in ms"
+                   [value]="statistics.averageResponse"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Min response time of all requests in ms" [value]="statistics.minResponse"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="stat-field-infix">
+          <label>
+            <input matInput placeholder="Max response time of all requests in ms" [value]="statistics.maxResponse"
+                   disabled="true">
+          </label>
+        </mat-form-field>
+      </div>
+
+    </div>
+  </mat-card-content>
+
+  <ng-template #loading>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-template>
+
+</mat-card>

@@ -2,7 +2,12 @@
 
   <mat-toolbar id="header" class="header" color="warn">
     <mat-toolbar-row>
-      <span>Fare Planner</span>
+      <h1>Fare Planner by KLM</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'home'"> Search Airports </a>
+        <a mat-button [routerLink]="'statistic'"> Statistics </a>
+      </div>
     </mat-toolbar-row>
 
   </mat-toolbar>
